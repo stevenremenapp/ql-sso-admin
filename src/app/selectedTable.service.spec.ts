@@ -32,7 +32,7 @@ describe('Service: SelectedTableService', () => {
       const selectedTable = 'beta-QLMS_ClientApp';
       service.getData(selectedTable);
       const req = httpTestingController.expectNone(
-        `https://vdtohno8th.execute-api.us-east-2.amazonaws.com/default/node-sso/table?tableName=${selectedTable}`
+        `https://pyok3j7ucb.execute-api.us-east-2.amazonaws.com/default/table?tableName=${selectedTable}`
       );
       // expect(req.request.method).toEqual('GET');
       // req.flush(response);
