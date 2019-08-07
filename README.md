@@ -1,27 +1,9 @@
-# NodeSso
+# Quicken Loans Internship Project
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.2.
+I built this project for engineers at Quicken Loans who found that frequently referencing the tiny little data boxes and/or exporting CSV files from DynamoDB tables was annoying. This tool was requested and built to surface data in a user friendly way for engineers working on a specific feature.
 
-## Development server
+This project is for demonstration purposes only and does not contain any real data. All secrets are strings courtesy of random.org.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+This project is built using Angular and RxJS on the frontend, and connects with an AWS API Gateway and Lambda function to scan the necessary DynamoDB tables. There is some unit testing in Jasmine. It was requested that a Docker image be created to deploy the project at Quicken, but I have deployed it via AWS S3.
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+[See the live project here!](http://steve-sso-admin.s3-website.us-east-2.amazonaws.com/)
