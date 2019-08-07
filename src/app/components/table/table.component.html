@@ -1,0 +1,50 @@
+<div *ngIf="!(isLoading | async)">
+  <div *ngIf="table === 'beta_client_app' || table === 'test_client_app'; else apiResourceTable" class="tableContainer">
+    <table>
+      <thead>
+        <tr>
+          <th>Client Name 📛</th>
+          <th>Client Secret 🤫</th>
+          <th>Client ID 🏷️</th>
+          <th>Allowed Scopes 🔭</th>
+          <th>Base URL 🏙️</th>
+          <th>Redirect URL ↩️</th>
+          <th>Post-Logout URL 💻</th>
+          <th>Allowed CORS Origins 👩‍💻</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of tableData">
+          <td>{{item.JsonString.ClientName}}</td>
+          <td (click)='copyToClipboard($event); showHideSecret($event)' class='copyToClipboard clientSecretTableCell'><pre #pre>{{ pre.classList.contains('show') ? item.JsonString.ClientSecrets[0].Value : '❓❓❓' }}</pre><span class="clickToShowCopy">{{pre.classList.contains('show') ? 'Click to Copy' : 'Click to Show'}}</span><span class="clickToHide">{{pre.classList.contains('show') ? 'Click Here to Hide' : ''}}</span></td>
+          <td>{{item.JsonString.ClientId}}</td>
+          <td><pre>{{item.JsonString.AllowedScopes.join(',\n')}}</pre></td>
+          <td *ngIf="item.JsonString.BaseUrl; else elseEmptyBlock" ><pre>{{item.JsonString.BaseUrl}}</pre></td>
+          <ng-template #elseEmptyBlock><td class="right ghostTableCell"><span class="ghost">👻</span> Nothing here! <span class="ghost">👻</span></td></ng-template>
+          <td class=""><pre>{{item.JsonString.RedirectUris.join(',\n')}}</pre></td>
+          <td><pre>{{item.JsonString.PostLogoutRedirectUris.join(',\n')}}</pre></td>
+          <td class="" *ngIf="item.JsonString.AllowedCorsOrigins.length > 0; else elseEmptyBlock"><pre>{{item.JsonString.AllowedCorsOrigins.join(',\n')}}</pre></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <ng-template #apiResourceTable>
+    <div class="tableContainer tableCenter">
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>API Secret 🤫</th>
+            </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of tableData">
+            <td>{{item.JsonString.Name}}</td>
+            <td (click)='copyToClipboard($event); showHideSecret($event)' class='copyToClipboard apiResourceTableRow'><pre #pre>{{ pre.classList.contains('show') ? item.JsonString.ApiSecrets[0].Value : '❓❓❓' }}</pre><span class="clickToShowCopy">{{pre.classList.contains('show') ? 'Click to Copy' : 'Click to Show'}}</span><span class="clickToHide">{{pre.classList.contains('show') ? 'Click Here to Hide' : ''}}</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </ng-template>
+</div>

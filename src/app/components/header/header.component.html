@@ -1,0 +1,15 @@
+<div class="headerContainer">
+  <div class="banner">
+    <h1 class="headerText">You are viewing the {{table | humanize}} table.</h1>
+    <select name="tableSelect" [(ngModel)]="table" (change)='updateObservable(table)' class="dropdown">
+      <option value="undefined" disabled selected>Select your table</option>
+      <option value="beta_client_app">Beta Client App</option>
+      <option value="test_client_app">Test Client App</option>
+      <option value="test_API_resource">Test API Resource</option>
+      <option value="beta_API_resource">Beta API Resource</option>
+    </select>
+  </div>
+  <div class="logoContainer">
+    <img class="logoImage" src="/assets/logo.jpg" alt="Logo for QLMS">
+  </div>
+</div>

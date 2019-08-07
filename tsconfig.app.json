@@ -1,0 +1,16 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./out-tsc/app",
+    "resolveJsonModule": true,
+    "types": []
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/app/utils/humanize.pipe.spec.ts"
+  ],
+  "exclude": [
+    "src/test.ts",
+    "src/**/*.spec.ts"
+  ]
+}

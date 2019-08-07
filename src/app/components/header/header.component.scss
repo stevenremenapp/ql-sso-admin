@@ -1,0 +1,42 @@
+.headerContainer {
+  top: 0;
+  left: 0;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  display: flex;
+  align-content: space-around;
+  background-color: #BF585C;
+  margin-bottom: 20px;
+  box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.25);
+  .banner {
+    width: 100%;
+    .headerText {
+      padding: 16px;
+      font-size: 24px;
+      font-weight: bold;
+    }
+    .dropdown {
+      min-width: 300px;
+      font-size: 20px;
+      border-radius: 4px;
+      border: 1px;
+      margin-bottom: 17px;
+      margin-left: 16px;
+    }
+  }
+  .logoContainer {
+    margin: 15px;
+    .logoImage {
+      border-radius: 4px;
+      max-width: 250px;
+      height: auto;
+    }
+  }
+}
+
+@media only screen and (max-width: 625px) {
+  .logoContainer {
+    display: none;
+  }
+}
